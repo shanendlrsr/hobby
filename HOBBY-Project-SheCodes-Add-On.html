@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traveling - My Hobby ✈️</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&family=Open+Sans:wght@300;800&display=swap");
+      body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        background-color: #2a435d;
+      }
+      .dark button {
+        background: white;
+        color: black;
+      }
+      .dark h1 {
+        color: white;
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 900;
+        font-size: 150px;
+        margin: 0 auto;
+        letter-spacing: 40px;
+        margin-left: 80px;
+      }
+      .header-light img {
+        content: url("https://media.product.which.co.uk/prod/images/original/gm-7e9010dc-efd5-4713-8fce-a398bd93ccf1-inline-plane-flying-1.jpeg");
+      }
+      .header-dark img {
+        content: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/197/original/DARK.jpg?1698497348");
+      }
+      .img-cover {
+        width: 100%;
+        height: 100vh;
+        z-index: -999;
+        position: absolute;
+      }
+      .dark {
+        background-color: #0a0a0a;
+        background-image: none;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+      }
+      .header-contents {
+        z-index: 3;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        position: absolute;
+        color: white;
+      }
+      h1 {
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 900;
+        font-size: 150px;
+        margin: 0 auto;
+        letter-spacing: 40px;
+        color: #2a435d;
+        margin-left: 80px;
+      }
+      h2 {
+        color: #2a435d;
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
+        margin-top: 30px;
+        letter-spacing: 10px;
+        color: white;
+      }
+      hr {
+        width: 5%;
+        margin: 15px auto;
+        border: 1px solid #dd8556;
+      }
+      h3 {
+        margin-top: 550px;
+        margin-bottom: 5px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
+        letter-spacing: 10px;
+        text-align: center;
+      }
+      h4 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
+        letter-spacing: 10px;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 5px;
+      }
+      .container-reasons {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        margin: 30px 100px 10px 100px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+      .center {
+        display: flex;
+        align-items: center;
+      }
+      .reasons {
+        font-family: "Open Sans", sans-serif;
+        font-size: 15px;
+        padding-left: 20px;
+      }
+      .numbers {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 900;
+        color: white;
+        font-size: 30px;
+        line-height: 60px;
+        margin-right: 5px;
+      }
+      img.pic1 {
+        width: 150px;
+        height: 250px;
+        transition: all 150ms ease-in-out;
+        position: absolute;
+        display: block;
+        margin-left: 750px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+      img.pic2 {
+        width: 150px;
+        height: 250px;
+        position: absolute;
+        transition: all 150ms ease-in-out;
+        z-index: -1;
+        transform: rotateZ(10deg);
+        margin-left: 750px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+      img.pic3 {
+        width: 150px;
+        height: 250px;
+        position: absolute;
+        transition: all 150ms ease-in-out;
+        z-index: -2;
+        transform: rotateZ(355deg);
+        margin-left: 750px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+      img.pic4 {
+        width: 150px;
+        height: 250px;
+        position: absolute;
+        transition: all 150ms ease-in-out;
+        z-index: -3;
+        transform: rotateZ(20deg);
+        margin-left: 750px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+      img.pic5 {
+        width: 150px;
+        height: 250px;
+        position: absolute;
+        transition: all 150ms ease-in-out;
+        z-index: -4;
+        transform: skew(15deg, 0deg);
+        margin-left: 750px;
+        margin-top: 50px;
+        border-radius: 10px;
+      }
+      img.pic1:hover {
+        transform: scale(1.2);
+        border: 5px solid rgba(255, 255, 255, 0.8);
+      }
+      img.pic1:hover + img.pic2 {
+        transform: translate(200px);
+      }
+
+      img.pic1:hover + img.pic2 + img.pic3 {
+        transform: translate(400px);
+      }
+
+      img.pic1:hover + img.pic2 + img.pic3 + img.pic4 {
+        transform: translate(-200px);
+      }
+
+      img.pic1:hover + img.pic2 + img.pic3 + img.pic4 + img.pic5 {
+        transform: translate(-400px);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        margin: 50px 100px 20px 100px;
+      }
+      .grid img {
+        width: 250px;
+        height: 350px;
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+      }
+      .grid img:hover {
+        transform: scale(1.2);
+      }
+      .places-container {
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        font-size: 15px;
+        letter-spacing: 5px;
+      }
+      .hongkong {
+        margin-top: 30px;
+      }
+
+      .singapore {
+        margin-top: 30px;
+      }
+      .philippines {
+        margin-top: 30px;
+      }
+      .australia {
+        margin-top: 30px;
+      }
+      span.left-country {
+        font-family: "Open Sans", sans serif;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-left: 20px;
+        margin-top: 30px;
+      }
+      span.left-country-number {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 100px;
+        margin: 60px 0px 30px 100px;
+      }
+      hr.left-hr {
+        position: absolute;
+        width: 5%;
+        margin-left: 150px;
+        margin-top: 50px;
+        border: 1px solid #dd8556;
+      }
+      .left-country-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        margin: 70px 100px 20px 20px;
+      }
+      .left-country-grid img {
+        width: 200px;
+        height: 350px;
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+      }
+      .left-country-grid img:hover {
+        transform: scale(1.2);
+      }
+      span.right-country {
+        font-family: "Open Sans", sans serif;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-left: 20px;
+        margin-top: 30px;
+      }
+      span.right-country-number {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 100px;
+        margin: 60px 100px 30px 20px;
+      }
+      hr.right-hr {
+        position: absolute;
+        width: 5%;
+        margin-left: 1170px;
+        margin-top: 50px;
+        border: 1px solid #dd8556;
+      }
+      .right-country-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        margin: 70px 20px 20px 100px;
+      }
+      .right-country-grid img {
+        width: 200px;
+        height: 350px;
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+      }
+      .right-country-grid img:hover {
+        transform: scale(1.2);
+      }
+
+      button {
+        background: transparent;
+        font-family: "Open Sans", sans-serif;
+        color: white;
+        font-size: 15px;
+        background: transparent;
+        border: 1px solid white;
+        display: block;
+        padding: 10px 15px;
+        margin: 10px auto;
+        border-radius: 30px;
+        transition: all 200ms ease;
+        box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+        cursor: pointer;
+        position: absolute;
+        z-index: 999;
+      }
+      button:hover {
+        color: #0a0a0a;
+      }
+      .learnButton {
+        background: transparent;
+        font-family: "Open Sans", sans-serif;
+        color: white;
+        font-size: 15px;
+        background: transparent;
+        border: 1px solid white;
+        display: block;
+        padding: 10px 15px;
+        margin: 40px auto;
+        border-radius: 30px;
+        transition: all 150ms ease-in-out;
+        box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+        text-align: center;
+      }
+      .learnButton:hover {
+        background-color: #dd8556;
+        color: white;
+      }
+      a.learnLink {
+        color: #2a435d;
+        text-decoration: none;
+      }
+      a.learnLink:hover {
+        color: white;
+      }
+      .contactButton {
+        background: transparent;
+        font-family: "Open Sans", sans-serif;
+        color: white;
+        font-size: 15px;
+        background: transparent;
+        border: 1px solid white;
+        display: block;
+        padding: 10px 15px;
+        margin: auto;
+        margin-top: 70px;
+        border-radius: 30px;
+        transition: all 150ms ease-in-out;
+        box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+        text-align: center;
+      }
+      .contactButton:hover {
+        background-color: #dd8556;
+        color: white;
+      }
+      a.contactLink {
+        color: #2a435d;
+        text-decoration: none;
+      }
+      a.contactLink:hover {
+        color: white;
+      }
+      footer {
+        color: white;
+        font-size: 15px;
+        font-family: "Open Sans", sans-serif;
+        text-align: center;
+        padding: 20px;
+        letter-spacing: 3px;
+      }
+      a.me {
+        color: #dd8556;
+        text-decoration: none;
+      }
+      #themeButton {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        class="img-cover header-light"
+        src="https://media.product.which.co.uk/prod/images/original/gm-7e9010dc-efd5-4713-8fce-a398bd93ccf1-inline-plane-flying-1.jpeg"
+      />
+    </div>
+    <div class="theme">
+      <button id="themeButton">Dark Theme</button>
+
+      <div class="header-contents">
+        <h2>MY HOBBY</h2>
+        <hr />
+        <h1>TRAVELING</h1>
+        <div class="contents">
+          <h3>REASONS TO TRAVEL</h3>
+          <hr />
+          <div class="images">
+            <img
+              class="pic1"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/351/original/IMG_2676.JPG?1698651791"
+            />
+            <img
+              class="pic2"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/358/original/IMG_2680.jpg?1698653951"
+            />
+            <img
+              class="pic3"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/357/original/IMG_2647.JPG?1698651850"
+            />
+            <img
+              class="pic4"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/356/original/IMG_2648.JPG?1698651843"
+            />
+            <img
+              class="pic5"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/354/original/IMG_2669.JPG?1698651821"
+            />
+          </div>
+
+          <div class="container-reasons">
+            <div class="reasons center">
+              <span class="numbers">1</span> EXPLORE NEW CULTURES
+            </div>
+            <div class="reasons center">
+              <span class="numbers">2</span> CREATE LASTING MEMORIES
+            </div>
+            <div class="reasons center">
+              <span class="numbers">3</span> EXPAND PERSPECTIVE
+            </div>
+            <div class="reasons center">
+              <span class="numbers">4</span> RECHARGE AND RELAX
+            </div>
+            <div class="reasons center">
+              <span class="numbers">5</span> DISCOVER HIDDEN GEMS
+            </div>
+          </div>
+          <a
+            class="learnLink"
+            href="https://www.nbcnews.com/better/wellness/5-scientifically-proven-health-benefits-traveling-abroad-n759631"
+            target="_blank"
+          >
+            <button class="learnButton">Learn More</button>
+          </a>
+
+          <h4>PLACES I'VE BEEN TO</h4>
+          <hr />
+          <div class="grid">
+            <div class="places-container">
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/372/original/IMG_2635.JPG?1698666337"
+              />
+              <div class="hongkong">HONG KONG</div>
+            </div>
+            <div class="places-container">
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/371/original/IMG_2627.JPG?1698666247"
+              />
+              <div class="singapore">SINGAPORE</div>
+            </div>
+            <div class="places-container">
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/373/original/IMG_2641_2.JPG?1698666354"
+              />
+              <div class="philippines">PHILIPPINES</div>
+            </div>
+            <div class="places-container">
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/374/original/IMG_2655.JPG?1698666368"
+              />
+              <div class="australia">AUSTRALIA</div>
+            </div>
+          </div>
+          <div class="country-container">
+            <div class="country center">
+              <span class="left-country-number">01</span>
+              <hr class="left-hr" />
+              <span class="left-country">HONG KONG</span>
+              <div class="left-country-grid">
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/482/original/IMG_2634.JPG?1698732424"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/480/original/IMG_2633.JPG?1698732377"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/477/original/IMG_2631.JPG?1698732328"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/476/original/IMG_2630.JPG?1698732309"
+                />
+              </div>
+            </div>
+            <div class="country center">
+              <div class="right-country-grid">
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/472/original/IMG_2625.JPG?1698732086"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/475/original/IMG_2626.jpg?1698732122"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/474/original/IMG_2623.JPG?1698732109"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/473/original/IMG_2624.JPG?1698732096"
+                />
+              </div>
+              <span class="right-country">SINGAPORE</span>
+              <span class="right-country-number">02</span>
+              <hr class="right-hr" />
+            </div>
+            <div class="country center">
+              <span class="left-country-number">03</span>
+              <hr class="left-hr" />
+              <span class="left-country">PHILIPPINES</span>
+              <div class="left-country-grid">
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/465/original/IMG_2639.JPG?1698731569"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/467/original/IMG_2651.JPG?1698731681"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/469/original/IMG_2644_2.JPG?1698731749"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/470/original/IMG_2649.JPG?1698731779"
+                />
+              </div>
+            </div>
+            <div class="country center">
+              <div class="right-country-grid">
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/464/original/IMG_2654.JPG?1698731104"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/463/original/IMG_2664.JPG?1698731092"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/462/original/IMG_2659.JPG?1698731076"
+                />
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/461/original/IMG_2666.JPG?1698731051"
+                />
+              </div>
+              <span class="right-country">AUSTRALIA</span>
+              <span class="right-country-number">04</span>
+              <hr class="right-hr" />
+            </div>
+          </div>
+        </div>
+        <a
+          class="contactLink"
+          href="https://www.linkedin.com/in/shanendelrosario"
+          target="_blank"
+        >
+          <button class="contactButton">Contact Me!</button>
+        </a>
+        <footer>
+          Coded by:
+          <a
+            class="me"
+            href="https://shanendelrosario-creatives.my.canva.site/"
+            target="_blank"
+          >
+            SHANEN DEL ROSARIO ♡
+          </a>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      function changeTheme() {
+        let body = document.querySelector("body");
+        let headerImage = document.querySelector(".header");
+        let h1 = document.querySelector("h1");
+
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+          headerImage.classList.remove("header-dark");
+          headerImage.classList.add("header-light");
+        } else {
+          body.classList.add("dark");
+          headerImage.classList.remove("header-light");
+          headerImage.classList.add("header-dark");
+        }
+      }
+      let themeButton = document.getElementById("themeButton");
+      themeButton.addEventListener("click", changeTheme);
+    </script>
+  </body>
+</html>
